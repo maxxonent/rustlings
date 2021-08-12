@@ -1,15 +1,16 @@
 // option2.rs
 // Make me compile! Execute `rustlings hint option2` for hints
 
-// I AM NOT DONE
-
 fn main() {
     let optional_word = Some(String::from("rustlings"));
     // TODO: Make this an if let statement whose value is "Some" type
-    word = optional_word {
+    // word = optional_word {
+    // } else {
+    //     println!("The optional word doesn't contain anything");
+    // }
+
+    if let Some(word) = optional_word {
         println!("The word is: {}", word);
-    } else {
-        println!("The optional word doesn't contain anything");
     }
 
     let mut optional_integers_vec: Vec<Option<i8>> = Vec::new();
@@ -19,7 +20,12 @@ fn main() {
 
     // TODO: make this a while let statement - remember that vector.pop also adds another layer of Option<T>
     // You can stack `Option<T>`'s into while let and if let
-    integer = optional_integers_vec.pop() {
+    // integer = optional_integers_vec.pop() {
+    //     println!("current value: {}", integer);
+    // }
+    let mut optional_integer: Option<i8> = None;
+    while let Some(integer) = optional_integer {
         println!("current value: {}", integer);
+        optional_integer = optional_integers_vec.pop().flatten();
     }
 }
